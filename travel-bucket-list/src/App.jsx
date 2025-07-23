@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   function handleAddDestination(newDestination) {
-  console.log("📤 Sending:", newDestination);
+  console.log(" Sending:", newDestination);
   fetch("http://localhost:4000/destinations", {
     method: "POST",
     headers: {
@@ -25,20 +25,37 @@ function App() {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log("✅ Saved to db.json:", data);
+      console.log(" Saved to db.json:", data);
       setDestinations([...destinations, data]);
     })
-    .catch((error) => console.error("❌ POST error:", error));
+    .catch((error) => console.error(" POST error:", error));
 }
+function handleToggleStatus(id, currentStatus) {
+  const updatedStatus = currentStatus === "Visited" ? "Not Yet" : "Visited";
 
+  fetch(`http://localhost:4000/destinations/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ status: updatedStatus })
+  })
+    .then(res => res.json())
+    .then((updatedDestination) => {
+      setDestinations(destinations.map(dest =>
+        dest.id === id ? updatedDestination : dest
+      ));
+    });
+}
 
   return (
     <div className="app">
       <h1>🌍 Trip Trail</h1>
       <DestinationForm onAdd={handleAddDestination} />
-      <DestinationList destinations={destinations} />
+      <DestinationList destinations={destinations} onToggleStatus={handleToggleStatus}/>
     </div>
   );
 }
 
 export default App;
+
