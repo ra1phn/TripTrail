@@ -29,7 +29,7 @@ function DestinationForm({ onAdd }) {
         <option value="Visited">Visited</option>
         <option value="Not Yet">Not Yet</option>
       </select>
-      <button type="submit">Add Destination</button>
+      <button type="submit" className="primary-btn">Add Destination</button>
     </form>
   );
 }

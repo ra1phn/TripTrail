@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
 import "./App.css";
 import { useEffect, useState } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import DestinationForm from "./components/DestinationForm";
 import DestinationList from "./components/DestinationList";
 
@@ -51,8 +54,9 @@ function handleToggleStatus(id, currentStatus) {
   return (
     <div className="app">
       <h1>🌍 Trip Trail</h1>
-      <DestinationForm onAdd={handleAddDestination} />
+      <Link to="/goals">Set Travel Goals</Link>
       <DestinationList destinations={destinations} onToggleStatus={handleToggleStatus}/>
+      <DestinationForm onAdd={handleAddDestination} />
     </div>
   );
 }
