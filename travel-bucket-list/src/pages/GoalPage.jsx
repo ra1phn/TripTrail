@@ -1,4 +1,4 @@
-import GoalForm from "../components/GoalSetting"; // or whatever your component is called
+import GoalForm from "../components/GoalSetting";
 
 function GoalPage() {
   return (

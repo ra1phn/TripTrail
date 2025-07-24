@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProgressBar from "../components/ProgressBar";
-import "./GoalSetting.css"; // or GoalSection.css if you renamed it
+import "./GoalSetting.css"; 
 
 function GoalSetting() {
   const [goals, setGoals] = useState({ weekly: "", yearly: "" });
@@ -53,7 +53,7 @@ function GoalSetting() {
       <p><strong>Weekly Goal:</strong> {goals.weekly || "Not set"}</p>
       <p><strong>Yearly Goal:</strong> {goals.yearly || "Not set"}</p>
 
-      {/* Progress Bars */}
+      {/* Progress */}
       {goals.weekly && goals.weeklyCompleted !== undefined && (
         <ProgressBar
           label="Weekly Progress"

@@ -1,24 +1,18 @@
-.progress-bar-wrapper {
+.progress-wrapper {
   margin: 1rem 0;
 }
 
-.progress-container {
+.progress-bar {
   background-color: #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden;
-  height: 24px;
+  border-radius: 10px;
+  height: 20px;
   width: 100%;
-  position: relative;
+  overflow: hidden;
+  margin-top: 0.5rem;
 }
 
 .progress-fill {
   background-color: #0077cc;
-  color: white;
   height: 100%;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.4s ease-in-out;
 }
