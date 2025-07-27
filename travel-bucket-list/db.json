@@ -1,0 +1,46 @@
+{
+  "destinations": [
+    {
+      "id": 1,
+      "name": "Kyoto",
+      "country": "Japan",
+      "continent": "Asia",
+      "description": "Historic temples, cherry blossoms, and traditional tea houses.",
+      "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "status": "Not Yet"
+    },
+    {
+      "id": 2,
+      "name": "Santorini",
+      "country": "Greece",
+      "continent": "Europe",
+      "description": "Whitewashed buildings, blue domes, and stunning sunsets.",
+      "image": "https://plus.unsplash.com/premium_photo-1661964149725-fbf14eabd38c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "status": "Visited"
+    },
+    {
+      "id": 3,
+      "name": "Cape Town",
+      "country": "South Africa",
+      "continent": "Africa",
+      "description": "Table Mountain views, vibrant culture, and coastal beauty.",
+      "image": "https://plus.unsplash.com/premium_photo-1664302180868-7d4be774ea23?q=80&w=1105&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "status": "Not Yet"
+    },
+    {
+      "name": "Reykjavik",
+      "country": "Iceland",
+      "continent": "Europe",
+      "description": "Northern lights and volcanic landscapes",
+      "image": "https://images.unsplash.com/photo-1513883524931-aaab83bcb19b?q=80&w=750&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "status": "Not Yet",
+      "id": 4
+    }
+  ],
+  "goals": {
+    "weekly": "8",
+    "yearly": "14",
+    "weeklyCompleted": "4",
+    "yearlyCompleted": "6"
+  }
+}
