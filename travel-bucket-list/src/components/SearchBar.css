@@ -1,0 +1,28 @@
+.search-bar-container {
+  display: flex;
+  justify-content: flex-start; 
+  gap: 0.5rem;
+  padding: 1rem;
+  max-width: 200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  min-width: 0; 
+}
+
+.clear-btn {
+  padding: 0.5rem 0.75rem;
+  background: #005fa3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
