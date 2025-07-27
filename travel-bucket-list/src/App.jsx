@@ -5,16 +5,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import DestinationForm from "./components/DestinationForm";
 import DestinationList from "./components/DestinationList";
+import SearchBar from './components/SearchBar';
+import FilterPanel from "./components/FilterPanel"; 
 
 function App() {
   const [destinations, setDestinations] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(""); 
+  const [statusFilter, setStatusFilter] = useState("all");
 
   // Fetch data when the component mounts
   useEffect(() => {
     fetch("http://localhost:4000/destinations")
       .then((res) => res.json())
       .then((data) => setDestinations(data))
-      .catch((error) => console.error("Error fetching destinations:", error));
+      .catch((error) => console.error("Fetch error:", error));
   }, []);
 
   function handleAddDestination(newDestination) {
@@ -51,13 +55,44 @@ function handleToggleStatus(id, currentStatus) {
     });
 }
 
+  // Apply both search + filter
+const filteredDestinations = destinations.filter((destination) => {
+  const matchesStatus =
+    statusFilter === "all" || destination.status === statusFilter;
+
+  const matchesSearch =
+    destination.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    destination.country.toLowerCase().includes(searchTerm.toLowerCase());
+
+  return matchesStatus && matchesSearch;
+});
+
   return (
     <div className="app">
-      <h1>🌍 Trip Trail</h1>
-      <Link to="/goals">Set Travel Goals</Link>
-      <DestinationList destinations={destinations} onToggleStatus={handleToggleStatus}/>
-      <DestinationForm onAdd={handleAddDestination} />
-    </div>
+    <h1>🌍 Trip Trail</h1>
+    <Link to="/goals">Set Travel Goals</Link>
+    {/* Search Bar */}
+    <SearchBar onSearch={setSearchTerm} />
+
+    {/* Filter Panel */}
+    <FilterPanel
+      statusFilter={statusFilter}
+      setStatusFilter={setStatusFilter}
+    />
+
+    {/* Filtered Destination List or Message */}
+    {filteredDestinations.length > 0 ? (
+      <DestinationList
+        destinations={filteredDestinations}
+        onToggleStatus={handleToggleStatus}
+      />
+    ) : (
+      <p>No destinations match your search or filter.</p>
+    )}
+
+    {/* Add New Destination Form */}
+    <DestinationForm onAdd={handleAddDestination} />
+  </div>
   );
 }
 
